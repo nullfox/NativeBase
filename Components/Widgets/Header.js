@@ -21,6 +21,10 @@ export default class Header extends NativeBaseComponent {
         iconRight: React.PropTypes.bool
     }
 
+    checkComponentRole(component, role) {
+		return component.props && component.props.role && component.props.role === role;
+	}
+
     getInitialStyle() {
         return {
             navbar: {
@@ -82,7 +86,7 @@ export default class Header extends NativeBaseComponent {
                 if(item.type == Button || this.checkComponentRole(item, 'button')) {
                     return true;
                 }
-            }).bind(this);
+            });
 
             var title = [];
             title = _.remove(childrenArray, function(item) {

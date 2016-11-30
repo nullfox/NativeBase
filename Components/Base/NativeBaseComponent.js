@@ -20,10 +20,6 @@ export default class NativeBaseComponent extends Component {
 		foregroundColor: React.PropTypes.string
 	}
 
-	checkComponentRole(component, role) {
-		return component.props && component.props.role && component.props.role === role;
-	}
-
 	getChildContext() {
 		return {
 			theme: this.props.theme ? this.props.theme : this.getTheme(),

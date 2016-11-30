@@ -18,13 +18,17 @@ export default class Container extends NativeBaseComponent {
         style : React.PropTypes.object
     }
 
+  checkComponentRole(component, role) {
+		return component.props && component.props.role && component.props.role === role;
+	}
+
   renderHeader() {
     if(Array.isArray(this.props.children)) {
       return _.find(this.props.children, function(item) {
         if(item && (item.type == Header || this.checkComponentRole(item, 'header'))) {
           return true;
         }
-      }).bind(this);
+      });
     }
 
     else {
