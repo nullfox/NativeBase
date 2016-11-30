@@ -82,7 +82,7 @@ export default class Header extends NativeBaseComponent {
                 if(item.type == Button || this.checkComponentRole(item, 'button')) {
                     return true;
                 }
-            });
+            }).bind(this);
 
             var title = [];
             title = _.remove(childrenArray, function(item) {

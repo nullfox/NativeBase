@@ -24,7 +24,7 @@ export default class Container extends NativeBaseComponent {
         if(item && (item.type == Header || this.checkComponentRole(item, 'header'))) {
           return true;
         }
-      });
+      }).bind(this);
     }
 
     else {
