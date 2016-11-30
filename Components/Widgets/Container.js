@@ -21,14 +21,14 @@ export default class Container extends NativeBaseComponent {
   renderHeader() {
     if(Array.isArray(this.props.children)) {
       return _.find(this.props.children, function(item) {
-        if(item && item.type == Header) {
+        if(item && (item.type == Header || this.checkComponentRole(item, 'header'))) {
           return true;
         }
       });
     }
 
     else {
-      if(this.props.children && this.props.children.type == Header) {
+      if(this.props.children && (this.props.children.type == Header || this.checkComponentRole(this.props.children, 'header'))) {
         return this.props.children;
       }
     }
